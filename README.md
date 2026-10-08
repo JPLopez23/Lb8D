@@ -119,20 +119,47 @@ generar los resultados principales.
 
 ## Como levantar el ambiente
 
-<!-- TODO (Ejercicio 1.5) -->
+Requisitos: Docker con Docker Compose y Git. Se necesitan unos 10 GB libres en disco.
+
+```bash
+git clone https://github.com/<su-usuario>/duckdb.git
+cd duckdb
+docker compose build lab
+docker compose up -d lab
+```
+
+Despues abrir http://127.0.0.1:8888 para entrar a JupyterLab. El servicio metabase se construye con `docker compose build metabase` y queda en http://127.0.0.1:3000. Para apagar todo, `docker compose down`.
+
+Para comprobar que el ambiente funciona:
+
+```bash
+docker compose ps
+docker exec lab8-lab python -c "import duckdb; print(duckdb.__version__)"
+```
+
+Las versiones estan fijadas en requirements.txt para que todos obtengan los mismos resultados.
 
 ## Como descargar los datos
 
-<!-- TODO (Ejercicios 2.6, 5.1 y 8.1) -->
+
 
 ## Como ejecutar el analisis
 
-<!-- TODO -->
+Abrir `notebooks/Lab8_DuckDB.ipynb` en JupyterLab y ejecutar todas las celdas. Cada consulta esta en un archivo de la carpeta sql, con su objetivo y fuente al inicio, y el notebook la imprime y la ejecuta. Las consultas del notebook leen los archivos Parquet directamente, no hace falta importar nada.
+
+Los archivos sql se leen con la ruta relativa de la carpeta notebooks, asi que el notebook debe ejecutarse desde ahi. Si la maquina tiene poca memoria, el notebook limita DuckDB a 1.5 GB y 2 hilos.
 
 ## Como reproducir los benchmarks
 
-<!-- TODO (Ejercicio 6) -->
+```bash
+cd notebooks
+python ../scripts/benchmark.py
+```
+
+El script crea la tabla viajes_tabla en data/processed/lab8.duckdb, cargandola mes por mes, corre las seis consultas de sql 06_bench con Parquet y con la tabla, con cuatro cantidades de datos y tres repeticiones, y guarda los tiempos en docs/benchmark.csv. Crear la tabla tarda cerca de 13 minutos y el archivo ocupa unos 2.8 GB. Se puede cambiar la ubicacion con la variable LAB8_DB, y la carpeta temporal con LAB8_TEMP.
 
 ## Como generar los resultados principales
 
-<!-- TODO -->
+Las tablas y graficas quedan en la carpeta docs al ejecutar el notebook: tablero.png con los nueve indicadores, benchmark.png y benchmark.csv con los tiempos, evolucion_3_anios.png con la comparacion de los tres anios y las graficas del analisis exploratorio. Las consultas de cada indicador estan en sql con prefijo 07_ind y pueden usarse para armar el tablero en Metabase, conectando la base data/processed/lab8.duckdb en modo de solo lectura.
+
+Nota sobre este entregable. El tablero de esta entrega es una figura generada con Python porque Metabase no se pudo construir en la maquina de desarrollo por falta de espacio en disco.
