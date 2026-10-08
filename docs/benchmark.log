@@ -1,0 +1,115 @@
+  cargado amarillo 2024-01
+  cargado verde 2024-01
+  cargado amarillo 2024-02
+  cargado verde 2024-02
+  cargado amarillo 2024-03
+  cargado verde 2024-03
+  cargado amarillo 2024-04
+  cargado verde 2024-04
+  cargado amarillo 2024-05
+  cargado verde 2024-05
+  cargado amarillo 2024-06
+  cargado verde 2024-06
+  cargado amarillo 2024-07
+  cargado verde 2024-07
+  cargado amarillo 2024-08
+  cargado verde 2024-08
+  cargado amarillo 2024-09
+  cargado verde 2024-09
+  cargado amarillo 2024-10
+  cargado verde 2024-10
+  cargado amarillo 2024-11
+  cargado verde 2024-11
+  cargado amarillo 2024-12
+  cargado verde 2024-12
+  cargado amarillo 2025-01
+  cargado verde 2025-01
+  cargado amarillo 2025-02
+  cargado verde 2025-02
+  cargado amarillo 2025-03
+  cargado verde 2025-03
+  cargado amarillo 2025-04
+  cargado verde 2025-04
+  cargado amarillo 2025-05
+  cargado verde 2025-05
+  cargado amarillo 2025-06
+  cargado verde 2025-06
+  cargado amarillo 2025-07
+  cargado verde 2025-07
+  cargado amarillo 2025-08
+  cargado verde 2025-08
+  cargado amarillo 2025-09
+  cargado verde 2025-09
+  cargado amarillo 2025-10
+  cargado verde 2025-10
+  cargado amarillo 2025-11
+  cargado verde 2025-11
+  cargado amarillo 2025-12
+  cargado verde 2025-12
+  cargado amarillo 2026-01
+  cargado verde 2026-01
+  cargado amarillo 2026-02
+  cargado verde 2026-02
+  cargado amarillo 2026-03
+  cargado verde 2026-03
+  cargado amarillo 2026-04
+  cargado verde 2026-04
+  cargado amarillo 2026-05
+  cargado verde 2026-05
+  cargado amarillo 2026-06
+  cargado verde 2026-06
+  cargado amarillo 2026-07
+  cargado verde 2026-07
+  cargado amarillo 2026-08
+  cargado verde 2026-08
+Tabla viajes_tabla creada en 795.8 s
+ 1 mes (2026-01) |       viajes | 06_bench_filtro_selectivo        |   0.25 s
+ 1 mes (2026-01) |       viajes | 06_bench_percentiles             |   0.61 s
+ 1 mes (2026-01) |       viajes | 06_bench_por_hora                |   0.19 s
+ 1 mes (2026-01) |       viajes | 06_bench_resumen_pago            |   0.13 s
+ 1 mes (2026-01) |       viajes | 06_bench_top_pares               |   0.12 s
+ 1 mes (2026-01) |       viajes | 06_bench_viajes_por_mes          |   0.28 s
+ 1 mes (2026-01) | viajes_tabla | 06_bench_filtro_selectivo        |   0.02 s
+ 1 mes (2026-01) | viajes_tabla | 06_bench_percentiles             |   0.82 s
+ 1 mes (2026-01) | viajes_tabla | 06_bench_por_hora                |   0.17 s
+ 1 mes (2026-01) | viajes_tabla | 06_bench_resumen_pago            |   0.15 s
+ 1 mes (2026-01) | viajes_tabla | 06_bench_top_pares               |   0.08 s
+ 1 mes (2026-01) | viajes_tabla | 06_bench_viajes_por_mes          |   0.19 s
+  2026 (8 meses) |       viajes | 06_bench_filtro_selectivo        |   1.13 s
+  2026 (8 meses) |       viajes | 06_bench_percentiles             |   4.57 s
+  2026 (8 meses) |       viajes | 06_bench_por_hora                |   1.82 s
+  2026 (8 meses) |       viajes | 06_bench_resumen_pago            |   1.18 s
+  2026 (8 meses) |       viajes | 06_bench_top_pares               |   0.79 s
+  2026 (8 meses) |       viajes | 06_bench_viajes_por_mes          |   2.16 s
+  2026 (8 meses) | viajes_tabla | 06_bench_filtro_selectivo        |   0.26 s
+  2026 (8 meses) | viajes_tabla | 06_bench_percentiles             |   4.78 s
+  2026 (8 meses) | viajes_tabla | 06_bench_por_hora                |   1.14 s
+  2026 (8 meses) | viajes_tabla | 06_bench_resumen_pago            |   0.84 s
+  2026 (8 meses) | viajes_tabla | 06_bench_top_pares               |   0.44 s
+  2026 (8 meses) | viajes_tabla | 06_bench_viajes_por_mes          |   1.86 s
+     2025 y 2026 |       viajes | 06_bench_filtro_selectivo        |   2.28 s
+     2025 y 2026 |       viajes | 06_bench_percentiles             |  13.05 s
+     2025 y 2026 |       viajes | 06_bench_por_hora                |   3.85 s
+     2025 y 2026 |       viajes | 06_bench_resumen_pago            |   2.86 s
+     2025 y 2026 |       viajes | 06_bench_top_pares               |   2.59 s
+     2025 y 2026 |       viajes | 06_bench_viajes_por_mes          |   6.17 s
+     2025 y 2026 | viajes_tabla | 06_bench_filtro_selectivo        |   0.33 s
+     2025 y 2026 | viajes_tabla | 06_bench_percentiles             |  15.88 s
+     2025 y 2026 | viajes_tabla | 06_bench_por_hora                |   2.89 s
+     2025 y 2026 | viajes_tabla | 06_bench_resumen_pago            |   1.46 s
+     2025 y 2026 | viajes_tabla | 06_bench_top_pares               |   0.94 s
+     2025 y 2026 | viajes_tabla | 06_bench_viajes_por_mes          |   3.90 s
+     2024 a 2026 |       viajes | 06_bench_filtro_selectivo        |   3.63 s
+     2024 a 2026 |       viajes | 06_bench_percentiles             |  19.95 s
+     2024 a 2026 |       viajes | 06_bench_por_hora                |   5.64 s
+     2024 a 2026 |       viajes | 06_bench_resumen_pago            |   5.96 s
+     2024 a 2026 |       viajes | 06_bench_top_pares               |   3.68 s
+     2024 a 2026 |       viajes | 06_bench_viajes_por_mes          |   9.11 s
+     2024 a 2026 | viajes_tabla | 06_bench_filtro_selectivo        |   0.89 s
+     2024 a 2026 | viajes_tabla | 06_bench_percentiles             |  31.29 s
+     2024 a 2026 | viajes_tabla | 06_bench_por_hora                |   3.64 s
+     2024 a 2026 | viajes_tabla | 06_bench_resumen_pago            |   3.93 s
+     2024 a 2026 | viajes_tabla | 06_bench_top_pares               |   3.41 s
+     2024 a 2026 | viajes_tabla | 06_bench_viajes_por_mes          |   8.37 s
+Resultados guardados en docs/benchmark.csv
+BENCH_DONE
