@@ -1,0 +1,3 @@
+NAME            IMAGE           COMMAND                  SERVICE    CREATED          STATUS          PORTS
+lab8-lab        lb8d-lab        "jupyter lab --ip=0...."   lab        22 minutes ago   Up 22 minutes   127.0.0.1:8888->8888/tcp
+lab8-metabase   lb8d-metabase   "/__cacert_entrypoin..."   metabase   16 minutes ago   Up 16 minutes   127.0.0.1:3000->3000/tcp

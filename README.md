@@ -1,36 +1,16 @@
 # Lab 8 - DuckDB
 
-Repositorio base del laboratorio 8 del curso **CC3084 - Data Science**
+Laboratorio 8 del curso **CC3084 - Data Science**
 (Universidad del Valle de Guatemala, Ciclo 2, 2026).
 
-Este es el repositorio **proporcionado por el docente**. Contiene la estructura
-del proyecto, el ambiente de ejecucion basado en Docker y un script que descarga
-los datos de **2026**. Todo lo demas debe ser construido por cada equipo.
+Equipo: Jose Lopez, Luis Palacios y Hugo Barillas.
 
-## Trabajo con fork
+Repositorio del equipo:
 
-El laboratorio se desarrolla y se entrega sobre un **fork** de este repositorio.
-No se trabaja directamente sobre el repositorio del docente.
-
-1. Realice un fork de este repositorio:
-   <https://github.com/menene/duckdb>
-
-2. Clone **su propio fork** (no el del docente):
-
-   ```bash
-   git clone https://github.com/<su-usuario>/duckdb.git
-   cd duckdb
-   ```
-
-3. Opcional, para recibir correcciones publicadas por el docente:
-
-   ```bash
-   git remote add upstream https://github.com/menene/duckdb.git
-   git fetch upstream
-   ```
-
-Realice commits frecuentes y descriptivos: el historial del repositorio es parte
-de la evaluacion. **La entrega del laboratorio es la URL de su fork.**
+```bash
+git clone https://github.com/JPLopez23/Lb8D.git
+cd Lb8D
+```
 
 ## Estructura
 
@@ -70,8 +50,9 @@ base materializada del Ejercicio 6. Se recomienda tener al menos 10 GB libres.
 ## Datos
 
 El repositorio incluye `scripts/download_data.py`, que descarga los archivos de
-2026 publicados por la TLC (`--help` muestra las opciones disponibles). Los
-archivos se guardan en `data/raw/<tipo>/<anio>/`.
+taxis amarillos y verdes de 2024, 2025 y 2026 publicados por la TLC
+(`--help` muestra las opciones disponibles). Los archivos se guardan en
+`data/raw/<tipo>/<anio>/`.
 
 La TLC publica cada mes con varias semanas de atraso, por lo que los ultimos
 meses de 2026 todavia no existen. El script consulta al servidor que meses estan
@@ -122,13 +103,13 @@ generar los resultados principales.
 Requisitos: Docker con Docker Compose y Git. Se necesitan unos 10 GB libres en disco.
 
 ```bash
-git clone https://github.com/<su-usuario>/duckdb.git
-cd duckdb
+git clone https://github.com/JPLopez23/Lb8D.git
+cd Lb8D
 docker compose build lab
 docker compose up -d lab
 ```
 
-Despues abrir http://127.0.0.1:8888 para entrar a JupyterLab. El servicio metabase se construye con `docker compose build metabase` y queda en http://127.0.0.1:3000. Para apagar todo, `docker compose down`.
+Despues abrir http://127.0.0.1:8888 para entrar a JupyterLab. El servicio metabase se construye con `docker compose build metabase` y `docker compose up -d metabase`, y queda en http://127.0.0.1:3000. Para apagar todo, `docker compose down`.
 
 Para comprobar que el ambiente funciona:
 
@@ -141,7 +122,22 @@ Las versiones estan fijadas en requirements.txt para que todos obtengan los mism
 
 ## Como descargar los datos
 
+Desde la raiz del proyecto:
 
+```bash
+python scripts/download_data.py
+```
+
+Sin argumentos baja taxis amarillos y verdes de 2024, 2025 y 2026. Para un subconjunto:
+
+```bash
+python scripts/download_data.py --years 2026
+python scripts/download_data.py --taxi yellow --years 2024 2025
+```
+
+Los archivos quedan en `data/raw/<tipo>/<anio>/`, por ejemplo `data/raw/yellow/2026/yellow_tripdata_2026-01.parquet`. Si el archivo ya existe y no esta vacio, el script lo omite. La descarga se escribe en un archivo temporal y solo se renombra al terminar.
+
+Al final imprime un resumen. La descarga esta completa cuando `fallidos` e `incompletos` son 0. En 2024 y 2025 la TLC publica los doce meses. En 2026 el script solo baja los meses que el servidor ya tiene; los demas aparecen como `no publicados` y no son un error. Se puede volver a correr el script cuando salgan meses nuevos.
 
 ## Como ejecutar el analisis
 
@@ -160,6 +156,13 @@ El script crea la tabla viajes_tabla en data/processed/lab8.duckdb, cargandola m
 
 ## Como generar los resultados principales
 
-Las tablas y graficas quedan en la carpeta docs al ejecutar el notebook: tablero.png con los nueve indicadores, benchmark.png y benchmark.csv con los tiempos, evolucion_3_anios.png con la comparacion de los tres anios y las graficas del analisis exploratorio. Las consultas de cada indicador estan en sql con prefijo 07_ind y pueden usarse para armar el tablero en Metabase, conectando la base data/processed/lab8.duckdb en modo de solo lectura.
+Las tablas y graficas quedan en la carpeta docs al ejecutar el notebook: tablero.png con los nueve indicadores, benchmark.png y benchmark.csv con los tiempos, evolucion_3_anios.png con la comparacion de los tres anios y las graficas del analisis exploratorio.
 
-Nota sobre este entregable. El tablero de esta entrega es una figura generada con Python porque Metabase no se pudo construir en la maquina de desarrollo por falta de espacio en disco.
+El tablero del laboratorio esta en Metabase. Despues de crear `data/processed/lab8.duckdb` con el benchmark:
+
+```bash
+docker compose build metabase
+docker compose up -d metabase
+```
+
+Abrir http://127.0.0.1:3000, crear la cuenta de administrador y agregar una base DuckDB con la ruta `/workspace/data/processed/lab8.duckdb` en modo de solo lectura. Las preguntas del tablero usan las consultas `sql/07_ind1` a `sql/07_ind9`, cambiando la vista `viajes` por la tabla `viajes_tabla`. La captura del tablero esta en `docs/tablero_metabase.png`.

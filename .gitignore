@@ -20,3 +20,8 @@ venv/
 Thumbs.db
 .idea/
 .vscode/
+
+# Guia y notas locales: no forman parte de la entrega
+Lab_8___DuckDB.md
+Lab_8___DuckDB.pdf
+CUsersJoseDownloadsdatlab8-duckdbterminar.md
